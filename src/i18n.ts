@@ -46,7 +46,7 @@ i18n.use(initReactI18next).init({
           ctaProjects: "View projects",
           portfolioKicker: "Portfolio",
           portfolioHeading:
-            "I design and build calm, confident software where AI, reliability, and thoughtful UX meet.",
+            "I design and build organized software where AI, reliability, and thoughtful UX meet.",
           portfolioLede:
             "Designing webpages, building AI bots, and shipping confident software experiences. This selection highlights the work I am most proud of.",
           portfolioCta: "Explore the full portfolio",
@@ -72,7 +72,7 @@ i18n.use(initReactI18next).init({
             "I'm a software engineer working at the intersection of AI platforms, site reliability engineering, and web development. I build internal tools and AI-powered systems that help engineering teams move faster and operate with greater clarity.\n\nI'm particularly interested in AI-driven platforms and agent-based systems, and I enjoy working across the stack, from backend services and data pipelines to developer-facing web interfaces. I have hands-on experience with AWS, Snowflake, and PostgreSQL, and I value teams that emphasize learning, ownership, and strong engineering fundamentals.\n\nMy work includes multi-agent systems, Slack automation, observability dashboards, and workflow tooling, with a focus on simplifying complex systems and reducing cognitive overhead for engineers and operators.\n\nI'm a dual-citizen with a Mexican background, raised in a border-town community where adaptability and clear problem-solving were part of everyday life. That perspective continues to influence how I approach engineering problems.",
           ctaResume: "Open resume 📄",
           ctaProjects: "View projects 💡",
-          heroImageAlt: "Nicole smiling in Times Square",
+          heroImageAlt: "Nicole in a professional headshot",
           heroCardTitle: "Quick hellos",
           heroBadgeOne: "AI + product thinker",
           heroBadgeTwo: "SRE minded, UX obsessed",
@@ -272,7 +272,7 @@ i18n.use(initReactI18next).init({
           ctaResume: "Abrir curriculum",
           ctaProjects: "Ver proyectos",
           portfolioKicker: "Portafolio",
-          portfolioHeading: "Disenando experiencias de software calmadas y seguras.",
+          portfolioHeading: "Diseño y desarrollo software organizado donde confluyen la inteligencia artificial, la fiabilidad y una experiencia de usuario bien pensada.",
           portfolioLede:
             "Construyo productos con IA, infraestructura resiliente y experiencias web cuidadas. Esta seleccion destaca el trabajo del que estoy mas orgullosa.",
           portfolioCta: "Explorar el portafolio completo",
@@ -298,7 +298,7 @@ i18n.use(initReactI18next).init({
             "Soy ingeniera de software y trabajo en la interseccion de plataformas de IA, ingenieria de confiabilidad del sitio y desarrollo web. Construyo herramientas internas y sistemas con IA que ayudan a los equipos de ingenieria a avanzar mas rapido y operar con mayor claridad.\n\nMe interesan especialmente las plataformas impulsadas por IA y los sistemas basados en agentes, y disfruto trabajar en todo el stack, desde servicios backend y pipelines de datos hasta interfaces web para desarrolladores. Tengo experiencia practica con AWS, Snowflake y PostgreSQL, y valoro equipos que enfatizan el aprendizaje, la autonomia y fundamentos solidos de ingenieria.\n\nMi trabajo incluye sistemas multiagente, automatizaciones en Slack, dashboards de observabilidad y tooling de flujos de trabajo, con enfoque en simplificar sistemas complejos y reducir la carga cognitiva de ingenieros y operadores.\n\nTengo doble nacionalidad y una raiz mexicana; creci en una comunidad fronteriza donde la adaptabilidad y la resolucion clara de problemas formaban parte de la vida diaria. Esa perspectiva sigue influyendo en como abordo los problemas de ingenieria.",
           ctaResume: "Abrir curriculum 📄",
           ctaProjects: "Ver proyectos 💡",
-          heroImageAlt: "Nicole sonriendo en Times Square",
+          heroImageAlt: "Nicole en una foto profesional",
           heroCardTitle: "Saluditos rapidos",
           heroBadgeOne: "IA + producto",
           heroBadgeTwo: "Mentalidad SRE, amor por UX",

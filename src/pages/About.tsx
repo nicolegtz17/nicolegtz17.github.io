@@ -5,7 +5,7 @@ import styles from "./About.module.css";
 
 const About = () => {
   const { t } = useTranslation();
-  const heroImageUrl = `${import.meta.env.BASE_URL}nicole-nyc.png`;
+  const heroImageUrl = `${import.meta.env.BASE_URL}nicole.jpeg`;
   const carouselImages = [
     {
       src: `${import.meta.env.BASE_URL}city.png`,

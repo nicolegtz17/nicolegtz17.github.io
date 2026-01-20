@@ -22,17 +22,6 @@ const Layout = () => {
             <p className={styles.subtitle}>{t("layout.subtitle")}</p>
           </div>
         </div>
-        <button
-          type="button"
-          className={styles.menuToggle}
-          aria-label="Toggle navigation"
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className={styles.menuBar} />
-          <span className={styles.menuBar} />
-          <span className={styles.menuBar} />
-        </button>
         <nav
           aria-label="Primary"
           className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
@@ -54,6 +43,17 @@ const Layout = () => {
           </NavLink>
         </nav>
         <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.menuToggle}
+            aria-label="Toggle navigation"
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            <span className={styles.menuBar} />
+            <span className={styles.menuBar} />
+            <span className={styles.menuBar} />
+          </button>
           <ThemeToggle />
           <LanguageToggle />
         </div>

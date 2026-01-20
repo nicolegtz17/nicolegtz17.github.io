@@ -5,7 +5,6 @@ import styles from "./Home.module.css";
 const Home = () => {
   const { t } = useTranslation();
   const portraitUrl = `${import.meta.env.BASE_URL}about-portrait.svg`;
-  const nicolePhotoUrl = `${import.meta.env.BASE_URL}nicole-nyc.png`;
 
   return (
     <div className={styles.home}>
@@ -26,10 +25,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <div className={styles.imageStack} aria-label="Nicole portraits">
-          <div className={styles.imageCard}>
-            <img src={nicolePhotoUrl} alt="Nicole in New York City" />
-          </div>
+        <div className={styles.imageStack} aria-label="Nicole portrait illustration">
           <div className={styles.imageCard}>
             <img src={portraitUrl} alt="Stylized lavender portrait illustration" />
           </div>
