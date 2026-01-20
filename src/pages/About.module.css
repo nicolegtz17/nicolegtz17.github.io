@@ -1,13 +1,34 @@
 .about {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 48px;
   padding-top: 16px;
-  animation: riseIn 0.7s ease both;
 }
 
-.header {
-  max-width: 640px;
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 32px;
+  align-items: center;
+  animation: riseIn 0.8s ease both;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -24px;
+  background: radial-gradient(circle at top left, rgba(183, 155, 255, 0.35), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(167, 193, 255, 0.4), transparent 60%);
+  opacity: 0.7;
+  filter: blur(18px);
+  z-index: 0;
+}
+
+.heroText,
+.heroMedia {
+  position: relative;
+  z-index: 1;
 }
 
 .kicker {
@@ -21,6 +42,168 @@
 .lede {
   color: var(--muted);
   font-size: 1.05rem;
+  white-space: pre-line;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, var(--button-start), var(--button-end));
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.secondaryButton {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.heroMedia {
+  display: grid;
+  gap: 16px;
+}
+
+.heroImage {
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.heroImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroCard {
+  padding: 20px 22px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background: linear-gradient(140deg, var(--surface), var(--surface-2));
+  box-shadow: var(--shadow);
+}
+
+.heroCardTitle {
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+
+.heroBadges {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.heroBadges li {
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(183, 155, 255, 0.16);
+  font-size: 0.95rem;
+}
+
+.section,
+.sectionAlt {
+  padding: 28px;
+  border-radius: 24px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: riseIn 0.7s ease both;
+  animation-delay: var(--delay, 0s);
+}
+
+.section {
+  background: var(--surface);
+}
+
+.sectionAlt {
+  background: linear-gradient(135deg, var(--surface), var(--surface-2));
+}
+
+.sectionHeader {
+  max-width: 680px;
+}
+
+.funList {
+  list-style: none;
+  padding: 0;
+  margin: 18px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.funList li {
+  padding: 12px 16px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.7);
+  color: var(--text);
+}
+
+.carousel {
+  margin-top: 20px;
+}
+
+.carouselTrack {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 1fr);
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+}
+
+.carouselTrack::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carouselTrack::-webkit-scrollbar-thumb {
+  background: rgba(167, 193, 255, 0.6);
+  border-radius: 999px;
+}
+
+.carouselCard {
+  scroll-snap-align: start;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.carouselCard img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.carouselCard figcaption {
+  padding: 12px 14px 16px;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .columns {
@@ -29,14 +212,43 @@
   gap: 24px;
 }
 
-@media (max-width: 700px) {
-  .columns {
-    grid-template-columns: 1fr;
-  }
-}
-
 .columns ul {
   padding-left: 20px;
   margin: 12px 0 0;
   color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .ctaRow {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .carouselCard img {
+    height: 210px;
+  }
+}
+
+:global([data-theme="dark"]) .heroCard {
+  background: linear-gradient(140deg, rgba(42, 42, 78, 0.9), rgba(26, 26, 46, 0.9));
+}
+
+:global([data-theme="dark"]) .heroBadges li {
+  background: rgba(167, 193, 255, 0.18);
+  color: var(--text);
+}
+
+:global([data-theme="dark"]) .funList li {
+  background: rgba(42, 42, 78, 0.85);
+  color: var(--text);
 }

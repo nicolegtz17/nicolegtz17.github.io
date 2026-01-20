@@ -15,7 +15,10 @@ const Home = () => {
           <h1>{t("home.aboutHeading")}</h1>
           <p className={styles.lede}>{t("home.aboutLede")}</p>
           <div className={styles.ctaRow}>
-            <Link to="/resume" className={styles.primaryButton}>
+            <Link to="/about" className={styles.primaryButton}>
+              {t("home.ctaAbout")}
+            </Link>
+            <Link to="/resume" className={styles.secondaryButton}>
               {t("home.ctaResume")}
             </Link>
             <Link to="/projects" className={styles.secondaryButton}>
@@ -39,24 +42,6 @@ const Home = () => {
           <h2>{t("home.portfolioHeading")}</h2>
           <p className={styles.lede}>{t("home.portfolioLede")}</p>
         </header>
-        <div className={styles.columns}>
-        <div>
-          <h2>{t("about.whatIDo")}</h2>
-          <ul>
-            <li>{t("about.doOne")}</li>
-            <li>{t("about.doTwo")}</li>
-            <li>{t("about.doThree")}</li>
-          </ul>
-        </div>
-        <div>
-          <h2>{t("about.howIWork")}</h2>
-          <ul>
-            <li>{t("about.workOne")}</li>
-            <li>{t("about.workTwo")}</li>
-            <li>{t("about.workThree")}</li>
-          </ul>
-        </div>
-      </div>
         {/* <div className={styles.cardGrid} aria-label="Highlights">
           <article className={styles.card}>
             <h3>AI Product Strategy</h3>
@@ -83,7 +68,10 @@ const Home = () => {
           <p className={styles.lede}>{t("home.connectLede")}</p>
         </div>
         <div className={styles.connectActions}>
-          <Link to="/resume" className={styles.primaryButton}>
+          <a href="mailto:nicolea.gtz@gmail.com" className={styles.primaryButton}>
+            {t("home.connectEmail")}
+          </a>
+          <Link to="/resume" className={styles.secondaryButton}>
             {t("home.connectResume")}
           </Link>
           <a

@@ -1,33 +1,26 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Projects.module.css";
 
 type TagKey = "all" | "ai" | "slack" | "sre" | "data" | "web";
+type ProjectKey = "slackStudio" | "opsAtlas" | "signalSync" | "pulseRoom";
 
-const PROJECTS = [
-  {
-    key: "signalSync",
-    tags: ["ai", "data"] as TagKey[],
-  },
-  {
-    key: "pulseRoom",
-    tags: ["sre", "data"] as TagKey[],
-  },
+const PROJECTS: { key: ProjectKey; tags: TagKey[] }[] = [
   {
     key: "slackStudio",
-    tags: ["slack", "web"] as TagKey[],
-  },
-  {
-    key: "violetLines",
-    tags: ["web"] as TagKey[],
+    tags: ["slack", "ai"],
   },
   {
     key: "opsAtlas",
-    tags: ["ai", "sre"] as TagKey[],
+    tags: ["ai", "sre"],
   },
   {
-    key: "datasetOrchard",
-    tags: ["data"] as TagKey[],
+    key: "signalSync",
+    tags: ["ai", "data"],
+  },
+  {
+    key: "pulseRoom",
+    tags: ["sre", "data"],
   },
 ];
 
@@ -42,6 +35,7 @@ const Projects = () => {
     { key: "web", label: t("projects.tags.web") },
   ];
   const [activeTag, setActiveTag] = useState<TagKey>("all");
+  const getList = (key: string) => t(key, { returnObjects: true }) as string[];
 
   const filtered = useMemo(() => {
     if (activeTag === "all") {
@@ -49,6 +43,34 @@ const Projects = () => {
     }
     return PROJECTS.filter((project) => project.tags.includes(activeTag));
   }, [activeTag]);
+
+  useEffect(() => {
+    const cards = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-project-card]")
+    );
+    if (!cards.length) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(styles.cardVisible);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+        rootMargin: "0px 0px -12% 0px",
+      }
+    );
+
+    cards.forEach((card) => observer.observe(card));
+
+    return () => observer.disconnect();
+  }, [filtered.length]);
 
   return (
     <section className={styles.projects}>
@@ -78,15 +100,70 @@ const Projects = () => {
 
       <div className={styles.grid}>
         {filtered.map((project) => (
-          <article key={project.key} className={styles.card}>
-            <h2>{t(`projects.items.${project.key}.title`)}</h2>
-            <p>{t(`projects.items.${project.key}.body`)}</p>
-            <div className={styles.tagRow}>
-              {project.tags.map((tag) => (
-                <span key={tag} className={styles.chip}>
-                  {t(`projects.tags.${tag}`)}
-                </span>
-              ))}
+          <article
+            key={project.key}
+            className={styles.card}
+            data-project-card
+          >
+            <div className={styles.cardHeader}>
+              <div>
+                <p className={styles.category}>
+                  {t(`projects.items.${project.key}.category`)}
+                </p>
+                <h2>{t(`projects.items.${project.key}.title`)}</h2>
+              </div>
+              <div className={styles.tagRow}>
+                {project.tags.map((tag) => (
+                  <span key={tag} className={styles.chip}>
+                    {t(`projects.tags.${tag}`)}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className={styles.section}>
+              <h3 className={styles.sectionTitle}>{t("projects.labels.role")}</h3>
+              <p>{t(`projects.items.${project.key}.role`)}</p>
+            </div>
+
+            <div className={styles.section}>
+              <h3 className={styles.sectionTitle}>
+                {t("projects.labels.deliverable")}
+              </h3>
+              <ul className={styles.list}>
+                {getList(
+                  `projects.items.${project.key}.deliverables`
+                ).map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.sectionGrid}>
+              <div className={styles.section}>
+                <h3 className={styles.sectionTitle}>
+                  {t("projects.labels.timeline")}
+                </h3>
+                <ul className={styles.list}>
+                  {getList(`projects.items.${project.key}.timeline`).map(
+                    (item) => (
+                      <li key={item}>{item}</li>
+                    )
+                  )}
+                </ul>
+              </div>
+              <div className={styles.section}>
+                <h3 className={styles.sectionTitle}>
+                  {t("projects.labels.learnings")}
+                </h3>
+                <ul className={styles.list}>
+                  {getList(`projects.items.${project.key}.learnings`).map(
+                    (item) => (
+                      <li key={item}>{item}</li>
+                    )
+                  )}
+                </ul>
+              </div>
             </div>
           </article>
         ))}

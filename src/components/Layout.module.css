@@ -76,13 +76,69 @@
   gap: 12px;
 }
 
+.menuToggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 0;
+  flex-direction: column;
+}
+
+.menuBar {
+  width: 18px;
+  height: 2px;
+  background: var(--text);
+  border-radius: 999px;
+  display: block;
+}
+
+.navOpen {
+  display: flex;
+}
+
 @media (max-width: 900px) {
   .header {
-    grid-template-columns: 1fr;
-    justify-items: start;
+    grid-template-columns: auto 1fr auto;
+    justify-items: stretch;
+    row-gap: 16px;
+  }
+
+  .brand {
+    justify-self: start;
   }
 
   .nav {
+    grid-column: 1 / -1;
+    flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-end;
+    gap: 10px;
+    align-self: stretch;
+    display: none;
+    padding-top: 6px;
+  }
+
+  .navOpen {
+    display: flex;
+  }
+
+  .link {
+    text-align: right;
+  }
+
+  .actions {
+    justify-content: flex-end;
+    align-self: end;
+  }
+
+  .menuToggle {
+    display: inline-flex;
+    justify-self: end;
   }
 }

@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from "./LanguageToggle";
 import ThemeToggle from "./ThemeToggle";
@@ -7,6 +8,7 @@ import styles from "./Layout.module.css";
 
 const Layout = () => {
   const { t } = useTranslation();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <div className={styles.shell}>
@@ -20,9 +22,26 @@ const Layout = () => {
             <p className={styles.subtitle}>{t("layout.subtitle")}</p>
           </div>
         </div>
-        <nav aria-label="Primary" className={styles.nav}>
+        <button
+          type="button"
+          className={styles.menuToggle}
+          aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span className={styles.menuBar} />
+          <span className={styles.menuBar} />
+          <span className={styles.menuBar} />
+        </button>
+        <nav
+          aria-label="Primary"
+          className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
+        >
           <NavLink to="/" end className={styles.link}>
             {t("nav.home")}
+          </NavLink>
+          <NavLink to="/about" className={styles.link}>
+            {t("nav.about")}
           </NavLink>
           <NavLink to="/projects" className={styles.link}>
             {t("nav.projects")}
