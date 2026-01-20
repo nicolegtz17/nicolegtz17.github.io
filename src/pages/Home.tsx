@@ -1,0 +1,103 @@
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import styles from "./Home.module.css";
+
+const Home = () => {
+  const { t } = useTranslation();
+  const portraitUrl = `${import.meta.env.BASE_URL}about-portrait.svg`;
+  const nicolePhotoUrl = `${import.meta.env.BASE_URL}nicole-nyc.png`;
+
+  return (
+    <div className={styles.home}>
+      <section className={styles.aboutHero}>
+        <div>
+          <p className={styles.kicker}>{t("home.aboutKicker")}</p>
+          <h1>{t("home.aboutHeading")}</h1>
+          <p className={styles.lede}>{t("home.aboutLede")}</p>
+          <div className={styles.ctaRow}>
+            <Link to="/resume" className={styles.primaryButton}>
+              {t("home.ctaResume")}
+            </Link>
+            <Link to="/projects" className={styles.secondaryButton}>
+              {t("home.ctaProjects")}
+            </Link>
+          </div>
+        </div>
+        <div className={styles.imageStack} aria-label="Nicole portraits">
+          <div className={styles.imageCard}>
+            <img src={nicolePhotoUrl} alt="Nicole in New York City" />
+          </div>
+          <div className={styles.imageCard}>
+            <img src={portraitUrl} alt="Stylized lavender portrait illustration" />
+          </div>
+        </div>
+      </section>
+
+      <section className={styles.portfolio} id="portfolio">
+        <header className={styles.portfolioHeader}>
+          <p className={styles.kicker}>{t("home.portfolioKicker")}</p>
+          <h2>{t("home.portfolioHeading")}</h2>
+          <p className={styles.lede}>{t("home.portfolioLede")}</p>
+        </header>
+        <div className={styles.columns}>
+        <div>
+          <h2>{t("about.whatIDo")}</h2>
+          <ul>
+            <li>{t("about.doOne")}</li>
+            <li>{t("about.doTwo")}</li>
+            <li>{t("about.doThree")}</li>
+          </ul>
+        </div>
+        <div>
+          <h2>{t("about.howIWork")}</h2>
+          <ul>
+            <li>{t("about.workOne")}</li>
+            <li>{t("about.workTwo")}</li>
+            <li>{t("about.workThree")}</li>
+          </ul>
+        </div>
+      </div>
+        {/* <div className={styles.cardGrid} aria-label="Highlights">
+          <article className={styles.card}>
+            <h3>AI Product Strategy</h3>
+            <p>Workstreams that turn ML prototypes into reliable, measurable wins.</p>
+          </article>
+          <article className={styles.card}>
+            <h3>Slack + Workflow Design</h3>
+            <p>Automations that make teams feel fast without feeling chaotic.</p>
+          </article>
+          <article className={styles.card}>
+            <h3>Web Experiences</h3>
+            <p>Soft, minimal interfaces with accessible, responsive systems.</p>
+          </article>
+        </div> */}
+        <Link to="/projects" className={styles.primaryButton}>
+          {t("home.portfolioCta")}
+        </Link>
+      </section>
+
+      <section className={styles.connect}>
+        <div>
+          <p className={styles.kicker}>{t("home.connectKicker")}</p>
+          <h2>{t("home.connectHeading")}</h2>
+          <p className={styles.lede}>{t("home.connectLede")}</p>
+        </div>
+        <div className={styles.connectActions}>
+          <Link to="/resume" className={styles.primaryButton}>
+            {t("home.connectResume")}
+          </Link>
+          <a
+            href="https://www.linkedin.com/in/nicoleagtz/"
+            className={styles.secondaryButton}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {t("home.connectLinkedIn")}
+          </a>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Home;

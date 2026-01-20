@@ -1,0 +1,14 @@
+.footer {
+  padding: 32px clamp(20px, 4vw, 64px);
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.meta {
+  margin: 0;
+  font-size: 0.9rem;
+}

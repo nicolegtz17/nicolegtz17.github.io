@@ -1,0 +1,87 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 16px;
+  animation: riseIn 0.7s ease both;
+}
+
+.header {
+  max-width: 640px;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.lede {
+  color: var(--muted);
+}
+
+.columns {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.postGrid {
+  display: grid;
+  gap: 16px;
+}
+
+.postCard {
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  animation: softFade 0.8s ease both;
+}
+
+.postDate {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.linkGroups {
+  display: grid;
+  gap: 18px;
+}
+
+.workspaceCard {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  animation: softFade 0.8s ease both;
+}
+
+.workspaceCard img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.linkGroup {
+  padding: 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.linkGroup ul {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.linkGroup a {
+  color: inherit;
+}

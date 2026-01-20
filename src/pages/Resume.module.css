@@ -1,0 +1,50 @@
+.resume {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding-top: 16px;
+  animation: riseIn 0.7s ease both;
+}
+
+.header {
+  max-width: 640px;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.lede {
+  color: var(--muted);
+}
+
+.download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.viewer {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.frame {
+  width: 100%;
+  height: min(70vh, 720px);
+  border: none;
+}

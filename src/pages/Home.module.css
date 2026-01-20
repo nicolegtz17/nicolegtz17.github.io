@@ -1,0 +1,145 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  padding-top: 24px;
+}
+
+.aboutHero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+  align-items: center;
+  animation: riseIn 0.7s ease both;
+}
+
+.kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.lede {
+  font-size: 1.05rem;
+  max-width: 520px;
+  color: var(--muted);
+  white-space: pre-line;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  border: 1px solid transparent;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primaryButton {
+  background: linear-gradient(135deg, var(--button-start), var(--button-end));
+  color: #fff;
+  box-shadow: var(--shadow);
+}
+
+.secondaryButton {
+  border-color: var(--accent);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  transform: translateY(-2px);
+}
+
+.imageStack {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.imageCard {
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  animation: softFade 0.8s ease both;
+}
+
+.imageCard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.portfolio {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  animation: riseIn 0.7s ease both;
+}
+
+.portfolioHeader {
+  max-width: 640px;
+}
+
+.columns {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.columns ul {
+  padding-left: 20px;
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.cardGrid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  padding: 20px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  animation: softFade 0.8s ease both;
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.connect {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  padding: 28px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(130deg, var(--surface), var(--surface-2));
+  box-shadow: var(--shadow);
+  animation: riseIn 0.7s ease both;
+}
+
+.connectActions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
+}

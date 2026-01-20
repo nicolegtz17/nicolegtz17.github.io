@@ -1,0 +1,16 @@
+.notFound {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 60vh;
+  gap: 16px;
+  animation: riseIn 0.7s ease both;
+}
+
+.homeLink {
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--surface);
+  font-weight: 600;
+}
