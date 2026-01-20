@@ -293,7 +293,7 @@ i18n.use(initReactI18next).init({
         },
         about: {
           kicker: "Sobre mi",
-          heading: "Hola, soy Nicole ✨",
+          heading: "Hola, soy Nicole ✨ ",
           lede:
             "Soy ingeniera de software y trabajo en la interseccion de plataformas de IA, ingenieria de confiabilidad del sitio y desarrollo web. Construyo herramientas internas y sistemas con IA que ayudan a los equipos de ingenieria a avanzar mas rapido y operar con mayor claridad.\n\nMe interesan especialmente las plataformas impulsadas por IA y los sistemas basados en agentes, y disfruto trabajar en todo el stack, desde servicios backend y pipelines de datos hasta interfaces web para desarrolladores. Tengo experiencia practica con AWS, Snowflake y PostgreSQL, y valoro equipos que enfatizan el aprendizaje, la autonomia y fundamentos solidos de ingenieria.\n\nMi trabajo incluye sistemas multiagente, automatizaciones en Slack, dashboards de observabilidad y tooling de flujos de trabajo, con enfoque en simplificar sistemas complejos y reducir la carga cognitiva de ingenieros y operadores.\n\nTengo doble nacionalidad y una raiz mexicana; creci en una comunidad fronteriza donde la adaptabilidad y la resolucion clara de problemas formaban parte de la vida diaria. Esa perspectiva sigue influyendo en como abordo los problemas de ingenieria.",
           ctaResume: "Abrir curriculum 📄",
