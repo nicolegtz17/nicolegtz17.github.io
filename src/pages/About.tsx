@@ -42,6 +42,8 @@ const About = () => {
     ({
       "--delay": value,
     }) as CSSProperties;
+  const stripEmojis = (s: string) =>
+    s.replace(/[\p{Emoji_Presentation}\p{Emoji}\uFE0F]/gu, "").trim();
 
   return (
     <div className={styles.about}>
@@ -87,14 +89,16 @@ const About = () => {
           <p className={styles.lede}>{t("about.funLede")}</p>
         </div>
         <ul className={styles.funList}>
-          <li>{t("about.funOne")}</li>
-          <li>{t("about.funTwo")}</li>
-          <li>{t("about.funThree")}</li>
-          <li>{t("about.funFour")}</li>
-          <li>{t("about.funFive")}</li>
+          <li>{stripEmojis(t("about.funOne"))}</li>
+          <li>{stripEmojis(t("about.funTwo"))}</li>
+          <li>{stripEmojis(t("about.funThree"))}</li>
+          <li>{stripEmojis(t("about.funFour"))}</li>
+          <li>{stripEmojis(t("about.funFive"))}</li>
         </ul>
       </section>
 
+      {/* Photo roll temporarily removed */}
+      {/*
       <section className={styles.sectionAlt} style={delay("0.16s")}>
         <div className={styles.sectionHeader}>
           <p className={styles.kicker}>{t("about.carouselKicker")}</p>
@@ -112,6 +116,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      */}
 
       <section className={styles.section} style={delay("0.24s")}>
         <div className={styles.columns}>

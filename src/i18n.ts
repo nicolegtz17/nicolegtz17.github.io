@@ -12,7 +12,7 @@ i18n.use(initReactI18next).init({
       translation: {
         layout: {
           title: "Nicole Gutierrez",
-          subtitle: "AI + Product + Web",
+          subtitle: "",
         },
         nav: {
           home: "Home",
@@ -69,7 +69,7 @@ i18n.use(initReactI18next).init({
           kicker: "About",
           heading: "Hi, I'm Nicole ✨",
           lede:
-            "I'm a software engineer working at the intersection of AI platforms, site reliability engineering, and web development. I build internal tools and AI-powered systems that help engineering teams move faster and operate with greater clarity.\n\nI'm particularly interested in AI-driven platforms and agent-based systems, and I enjoy working across the stack, from backend services and data pipelines to developer-facing web interfaces. I have hands-on experience with AWS, Snowflake, and PostgreSQL, and I value teams that emphasize learning, ownership, and strong engineering fundamentals.\n\nMy work includes multi-agent systems, Slack automation, observability dashboards, and workflow tooling, with a focus on simplifying complex systems and reducing cognitive overhead for engineers and operators.\n\nI'm a dual-citizen with a Mexican background, raised in a border-town community where adaptability and clear problem-solving were part of everyday life. That perspective continues to influence how I approach engineering problems.",
+            "I'm a software engineer working at the intersection of AI platforms, site reliability engineering, and web development. I build internal tools and AI-powered systems that help engineering teams move faster and operate with greater clarity.\n\nI'm particularly interested in AI-driven platforms and agent-based systems, and I enjoy working across the stack, from backend services and data pipelines to developer-facing web interfaces. I have hands-on experience with AWS, Snowflake, and PostgreSQL, and I value teams that emphasize learning, ownership, and strong engineering fundamentals.\n\nMy work includes multi-agent systems, Slack automation, observability dashboards, and workflow tooling, with a focus on simplifying complex systems and reducing cognitive overhead for engineers and operators.",
           ctaResume: "Open resume 📄",
           ctaProjects: "View projects 💡",
           heroImageAlt: "Nicole in a professional headshot",
@@ -78,7 +78,7 @@ i18n.use(initReactI18next).init({
           heroBadgeTwo: "SRE minded, UX obsessed",
           heroBadgeThree: "AI systems builder + storyteller",
           funKicker: "Outside work",
-          funHeading: "Things that light me up 🌈",
+          funHeading: "Things that light me up",
           funLede:
             "When I'm off the clock, I'm usually chasing fresh air, good food, and little sparks of joy.",
           funOne: "Runs, long walks, and sunny resets 🏃‍♀️",
@@ -304,7 +304,7 @@ i18n.use(initReactI18next).init({
           heroBadgeTwo: "Mentalidad SRE, amor por UX",
           heroBadgeThree: "Constructora de sistemas IA + storyteller",
           funKicker: "Fuera del trabajo",
-          funHeading: "Cosas que me llenan de energia 🌈",
+          funHeading: "Cosas que me llenan de energia",
           funLede: "Cuando desconecto, busco aire fresco, buena comida y pequenos momentos felices.",
           funOne: "Correr, caminar y recargar al sol 🏃‍♀️",
           funTwo: "Pickleball y competencia amistosa 🏓",
