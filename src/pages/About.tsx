@@ -6,38 +6,7 @@ import styles from "./About.module.css";
 const About = () => {
   const { t } = useTranslation();
   const heroImageUrl = `${import.meta.env.BASE_URL}nicole.jpeg`;
-  const carouselImages = [
-    {
-      src: `${import.meta.env.BASE_URL}city.png`,
-      alt: t("about.carouselCityAlt"),
-      caption: t("about.carouselCityCaption"),
-    },
-    {
-      src: `${import.meta.env.BASE_URL}sea-view.png`,
-      alt: t("about.carouselSeaAlt"),
-      caption: t("about.carouselSeaCaption"),
-    },
-    {
-      src: `${import.meta.env.BASE_URL}pickleball.png`,
-      alt: t("about.carouselPickleAlt"),
-      caption: t("about.carouselPickleCaption"),
-    },
-    {
-      src: `${import.meta.env.BASE_URL}matcha.png`,
-      alt: t("about.carouselMatchaAlt"),
-      caption: t("about.carouselMatchaCaption"),
-    },
-    {
-      src: `${import.meta.env.BASE_URL}sushi.png`,
-      alt: t("about.carouselSushiAlt"),
-      caption: t("about.carouselSushiCaption"),
-    },
-    {
-      src: `${import.meta.env.BASE_URL}tacos.png`,
-      alt: t("about.carouselTacosAlt"),
-      caption: t("about.carouselTacosCaption"),
-    },
-  ];
+  
   const delay = (value: string): CSSProperties =>
     ({
       "--delay": value,
