@@ -24,4 +24,4 @@ In GitHub, make sure Pages is set to use GitHub Actions as the source.
 
 ## Resume file
 
-Place your real resume at `public/resume.pdf` to replace the placeholder
+Place your real resume at `public/resume.pdf` to replace the placeholder.
