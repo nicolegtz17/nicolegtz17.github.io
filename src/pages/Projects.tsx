@@ -2,25 +2,18 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./Projects.module.css";
 
-type TagKey = "all" | "ai" | "slack" | "sre" | "data" | "web";
-type ProjectKey = "slackStudio" | "opsAtlas" | "signalSync" | "pulseRoom";
+type TagKey = "all" | "ai" | "sre" | "web" | "data";
+type ProjectKey = "dentalia" | "mcpAuth";
 
-const PROJECTS: { key: ProjectKey; tags: TagKey[] }[] = [
+const PROJECTS: { key: ProjectKey; tags: TagKey[]; link?: string }[] = [
   {
-    key: "slackStudio",
-    tags: ["slack", "ai"],
+    key: "dentalia",
+    tags: ["web", "ai"],
+    link: "https://dentalia-project-link.com", // TODO: replace with your live link
   },
   {
-    key: "opsAtlas",
-    tags: ["ai", "sre"],
-  },
-  {
-    key: "signalSync",
-    tags: ["ai", "data"],
-  },
-  {
-    key: "pulseRoom",
-    tags: ["sre", "data"],
+    key: "mcpAuth",
+    tags: ["ai", "sre", "data"],
   },
 ];
 
@@ -29,28 +22,23 @@ const Projects = () => {
   const tags: { key: TagKey; label: string }[] = [
     { key: "all", label: t("projects.tags.all") },
     { key: "ai", label: t("projects.tags.ai") },
-    { key: "slack", label: t("projects.tags.slack") },
+    { key: "web", label: t("projects.tags.web") },
     { key: "sre", label: t("projects.tags.sre") },
     { key: "data", label: t("projects.tags.data") },
-    { key: "web", label: t("projects.tags.web") },
   ];
   const [activeTag, setActiveTag] = useState<TagKey>("all");
   const getList = (key: string) => t(key, { returnObjects: true }) as string[];
 
   const filtered = useMemo(() => {
-    if (activeTag === "all") {
-      return PROJECTS;
-    }
-    return PROJECTS.filter((project) => project.tags.includes(activeTag));
+    if (activeTag === "all") return PROJECTS;
+    return PROJECTS.filter((p) => p.tags.includes(activeTag));
   }, [activeTag]);
 
   useEffect(() => {
     const cards = Array.from(
       document.querySelectorAll<HTMLElement>("[data-project-card]")
     );
-    if (!cards.length) {
-      return;
-    }
+    if (!cards.length) return;
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -61,14 +49,10 @@ const Projects = () => {
           }
         });
       },
-      {
-        threshold: 0.2,
-        rootMargin: "0px 0px -12% 0px",
-      }
+      { threshold: 0.15, rootMargin: "0px 0px -10% 0px" }
     );
 
     cards.forEach((card) => observer.observe(card));
-
     return () => observer.disconnect();
   }, [filtered.length]);
 
@@ -131,11 +115,11 @@ const Projects = () => {
                 {t("projects.labels.deliverable")}
               </h3>
               <ul className={styles.list}>
-                {getList(
-                  `projects.items.${project.key}.deliverables`
-                ).map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
+                {getList(`projects.items.${project.key}.deliverables`).map(
+                  (item) => (
+                    <li key={item}>{item}</li>
+                  )
+                )}
               </ul>
             </div>
 
@@ -165,6 +149,19 @@ const Projects = () => {
                 </ul>
               </div>
             </div>
+
+            {project.link && (
+              <div className={styles.linkRow}>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.linkButton}
+                >
+                  {t("projects.labels.viewProject")} →
+                </a>
+              </div>
+            )}
           </article>
         ))}
       </div>

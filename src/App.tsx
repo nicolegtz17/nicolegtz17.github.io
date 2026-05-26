@@ -6,19 +6,23 @@ import Projects from "./pages/Projects";
 import BlogLinks from "./pages/BlogLinks";
 import Resume from "./pages/Resume";
 import NotFound from "./pages/NotFound";
+import SplashScreen from "./components/SplashScreen";
 
 const App = () => {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about" element={<About />} />
-        <Route path="projects" element={<Projects />} />
-        <Route path="blog" element={<BlogLinks />} />
-        <Route path="resume" element={<Resume />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
+    <>
+      <SplashScreen />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about" element={<About />} />
+          <Route path="projects" element={<Projects />} />
+          <Route path="blog" element={<BlogLinks />} />
+          <Route path="resume" element={<Resume />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    </>
   );
 };
 

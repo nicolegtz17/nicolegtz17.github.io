@@ -160,6 +160,34 @@
   font-size: 0.85rem;
 }
 
+.linkRow {
+  position: relative;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--border) 70%, transparent);
+}
+
+.linkButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  background: linear-gradient(135deg, var(--button-start), var(--button-end));
+  color: #fff;
+  border: none;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.linkButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 77, 255, 0.3);
+}
+
 @media (min-width: 900px) {
   .sectionGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));

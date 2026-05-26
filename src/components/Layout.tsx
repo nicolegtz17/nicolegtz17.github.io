@@ -1,4 +1,4 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import LanguageToggle from "./LanguageToggle";
@@ -9,6 +9,7 @@ import styles from "./Layout.module.css";
 const Layout = () => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   return (
     <div className={styles.shell}>
@@ -26,19 +27,19 @@ const Layout = () => {
           aria-label="Primary"
           className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
         >
-          <NavLink to="/" end className={styles.link}>
+          <NavLink to="/" end className={styles.link} onClick={() => setMenuOpen(false)}>
             {t("nav.home")}
           </NavLink>
-          <NavLink to="/about" className={styles.link}>
+          <NavLink to="/about" className={styles.link} onClick={() => setMenuOpen(false)}>
             {t("nav.about")}
           </NavLink>
-          <NavLink to="/projects" className={styles.link}>
+          <NavLink to="/projects" className={styles.link} onClick={() => setMenuOpen(false)}>
             {t("nav.projects")}
           </NavLink>
-          <NavLink to="/blog" className={styles.link}>
+          <NavLink to="/blog" className={styles.link} onClick={() => setMenuOpen(false)}>
             {t("nav.blog")}
           </NavLink>
-          <NavLink to="/resume" className={styles.link}>
+          <NavLink to="/resume" className={styles.link} onClick={() => setMenuOpen(false)}>
             {t("nav.resume")}
           </NavLink>
         </nav>
@@ -58,7 +59,7 @@ const Layout = () => {
           <LanguageToggle />
         </div>
       </header>
-      <main className={styles.main}>
+      <main className={styles.main} key={location.pathname}>
         <Outlet />
       </main>
       <Footer />

@@ -1,0 +1,227 @@
+/* ── Container ─────────────────────────────────────────── */
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #080415;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  pointer-events: none;
+  animation: splashExit 0.65s 1.75s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+/* ── Dot grid ───────────────────────────────────────────── */
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(9, 1fr);
+  padding: clamp(24px, 5vw, 60px);
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #b79bff;
+  opacity: 0;
+  justify-self: center;
+  align-self: center;
+  animation: dotPulse 2s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+/* ── Crosshair lines ────────────────────────────────────── */
+.vline {
+  position: absolute;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(124, 77, 255, 0.35) 30%,
+    rgba(183, 155, 255, 0.55) 50%,
+    rgba(124, 77, 255, 0.35) 70%,
+    transparent
+  );
+  animation: vlineReveal 0.9s 0.1s ease both;
+}
+
+.hline {
+  position: absolute;
+  height: 1px;
+  left: 0;
+  right: 0;
+  top: 50%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(124, 77, 255, 0.35) 30%,
+    rgba(183, 155, 255, 0.55) 50%,
+    rgba(124, 77, 255, 0.35) 70%,
+    transparent
+  );
+  animation: hlineReveal 0.9s 0.1s ease both;
+}
+
+/* ── Center content ─────────────────────────────────────── */
+.center {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.scanLine {
+  position: absolute;
+  top: -80px;
+  left: -50vw;
+  width: 200vw;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(183, 155, 255, 0.7) 40%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(183, 155, 255, 0.7) 60%,
+    transparent 100%
+  );
+  animation: scan 1s 0.15s ease-out forwards;
+}
+
+.label {
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: rgba(183, 155, 255, 0.65);
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  animation: fadeUp 0.55s 0.45s ease both;
+}
+
+.name {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.06em;
+  font-family: "Space Grotesk", sans-serif;
+  animation: nameReveal 0.75s 0.55s ease both;
+  text-shadow: 0 0 40px rgba(183, 155, 255, 0.5);
+}
+
+.bar {
+  width: 36px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c4dff, #b79bff, #7c4dff);
+  animation: barIn 0.5s 0.9s ease both;
+}
+
+/* ── Keyframes ──────────────────────────────────────────── */
+@keyframes dotPulse {
+  0%, 100% {
+    opacity: 0.07;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.75;
+    transform: scale(1.8);
+  }
+}
+
+@keyframes vlineReveal {
+  from {
+    transform: translateX(-50%) scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes hlineReveal {
+  from {
+    transform: translateY(-50%) scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nameReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.22em;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.06em;
+  }
+}
+
+@keyframes barIn {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes splashExit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.04);
+    filter: brightness(1.4);
+  }
+}
+
+/* ── Reduce motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .splash {
+    animation-duration: 0.01ms;
+    animation-delay: 0.01ms;
+  }
+}
